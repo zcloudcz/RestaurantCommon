@@ -12,7 +12,7 @@ npm run build       # production build of all games
 npm run test:e2e    # Playwright browser tests
 ```
 
-Details (Czech): [docs/DETAILS.md](docs/DETAILS.md)
+Details: [docs/DETAILS.md](docs/DETAILS.md)
 
 ## Repository family
 

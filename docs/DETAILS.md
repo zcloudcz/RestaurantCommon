@@ -1,10 +1,10 @@
 # Restaurant Common
 
-Společný projekt pro dvě samostatné 3D idle arcade hry: **Burger Rush** a **Pizza Piazza**. Obsahuje herní simulaci, Three.js grafiku, ovládání, rozhraní, zvuky, ukládání, testy a build nástroje. Každá hra má vlastní sousední adresář, konfiguraci, ikony, manifest a výsledný web.
+A shared project for two standalone 3D idle arcade games: **Burger Rush** and **Pizza Piazza**. It contains the game simulation, Three.js graphics, controls, UI, sounds, saving, tests, and build tools. Each game has its own sibling directory, configuration, icons, manifest, and resulting website.
 
-## Spuštění
+## Running
 
-Potřebuješ Node.js 22.12+ a prohlížeč s WebGL 2. Zachovej sourozenecké adresáře:
+You need Node.js 22.12+ and a browser with WebGL 2. Keep the sibling directories together:
 
 ```text
 GAMES/
@@ -13,13 +13,13 @@ GAMES/
   PizzaPiazza/
 ```
 
-Jednorázově v tomto adresáři:
+Run once in this directory:
 
 ```powershell
 npm ci
 ```
 
-Potom v adresáři vybrané hry:
+Then, in the directory of the chosen game:
 
 ```powershell
 npm run dev
@@ -27,52 +27,52 @@ npm run dev
 
 - Burger Rush: `http://localhost:4173`
 - Pizza Piazza: `http://localhost:4174`
-- Telefon ve stejné Wi-Fi: použij adresu `Network`, kterou vypíše server. Přístup může záviset na nastavení místní sítě/firewallu.
+- Phone on the same Wi-Fi: use the `Network` address printed by the server. Access may depend on the local network/firewall settings.
 
-Vývojová hra funguje bez backendu nebo registrace. Závislosti se instalují pouze v `RestaurantCommon`; obě hry používají zdejší nástroje.
+The development game works without a backend or registration. Dependencies are installed only in `RestaurantCommon`; both games use the tools here.
 
-## Produkční build a PWA
+## Production build and PWA
 
 ```powershell
-# V RestaurantCommon sestaví obě hry:
+# In RestaurantCommon, builds both games:
 npm run build
 
-# V každé hře lze samostatně:
+# In each game, separately:
 npm run build
 npm run preview
 ```
 
-Výsledky jsou v `BurgerRush/dist/` a `PizzaPiazza/dist/`. Každou složku lze samostatně nasadit na statický HTTPS hosting, i do podadresáře. Žádná vzdálená knihovna, font ani model není potřeba za běhu. Build obsahuje lokální cache a ikony PWA.
+The results are in `BurgerRush/dist/` and `PizzaPiazza/dist/`. Each folder can be deployed on its own to static HTTPS hosting, including in a subdirectory. No remote library, font, or model is needed at runtime. The build contains a local cache and PWA icons.
 
-**Instalace a offline režim vyžadují HTTPS nebo localhost.** Obyčejná LAN adresa přes HTTP je vhodná pro vyzkoušení ovládání na telefonu; nezajišťuje PWA/offline funkce. První načtení musí proběhnout online. Po dokončení cache hra funguje bez sítě. Nová verze service workeru nenahrazuje rozhraní během rozehrané hry.
+**Installation and offline mode require HTTPS or localhost.** A plain LAN address over HTTP is suitable for trying out the controls on a phone; it does not provide PWA/offline features. The first load must happen online. Once the cache is complete, the game works without a network. A new service worker version does not replace the interface during a game in progress.
 
-## Co je hotové
+## What is done
 
-- Dva odlišné výrobní řetězce: gril → burger a těsto → příprava → dávkové pečení.
-- Burger navíc odemyká fritézu a samostatně přenášené hranolky, které zákazníci kupují jako přílohu. Starší uložené hry se automaticky doplní o novou stanici.
-- Ruční nošení, společný tác pro burgery a hranolky, kapacita, přenosové zóny, výroba do bufferů, výdej, objednávky, pokladna a tržby.
-- Zákazníci, fronta, stoly, úklid, koš, drive-thru / rozvoz skútry.
-- Dvanáct rozšíření podniku, čtyři pracovní role, šest řad vylepšení, tři recepty a tři zástěry.
-- Tři denní úkoly, navigační nápověda, závěrečné vyhodnocení a pokračování po dokončení restaurace.
-- Dotykové tažení, WASD/šipky a kliknutí na označení stanice pro automatické dojití.
-- Rozhraní ve 20 jazycích: čeština, angličtina, slovenština, němčina, francouzština, španělština, italština, portugalština, polština, nizozemština, ukrajinština, ruština, rumunština, maďarština, turečtina, čínština (zjednodušená), japonština, korejština, arabština a hindština. Automatická volba podle preferencí prohlížeče, uložená ruční volba, arabské RTL a místní formátování čísel.
-- Zvuky, pauza, omezení efektů a úsporná grafika.
-- Samostatné uložené hry, export/import zálohy, kontrola schématu, migrace v0 → v1, automatické ukládání a offline příjem po plné automatizaci.
-- Trvale viditelný ukazatel „Volné peníze“ odlišuje neinvestovanou hotovost od částky vložené do rozšíření.
+- Two distinct production chains: grill → burger, and dough → preparation → batch baking.
+- The burger game additionally unlocks a deep fryer and separately carried fries, which customers buy as a side. Older saved games are automatically extended with the new station.
+- Manual carrying, a shared tray for burgers and fries, capacity, transfer zones, production into buffers, pickup counter, orders, cash register, and revenue.
+- Customers, queue, tables, cleanup, trash bin, drive-thru / scooter delivery.
+- Twelve business expansions, four work roles, six upgrade tracks, three recipes, and three aprons.
+- Three daily tasks, navigation hints, a final summary, and continued play after the restaurant is completed.
+- Touch drag, WASD/arrow keys, and a click on a station marker to walk there automatically.
+- UI in 20 languages: Czech, English, Slovak, German, French, Spanish, Italian, Portuguese, Polish, Dutch, Ukrainian, Russian, Romanian, Hungarian, Turkish, Chinese (Simplified), Japanese, Korean, Arabic, and Hindi. Automatic selection based on browser preferences, a saved manual choice, Arabic RTL, and local number formatting.
+- Sounds, pause, reduced effects, and power-saving graphics.
+- Separate saved games, backup export/import, schema validation, v0 → v1 migration, autosave, and offline income after full automation.
+- A permanently visible "Free money" (Volné peníze) indicator distinguishes uninvested cash from the amount put into an expansion.
 
-Offline příjem je konzervativní odhad udržitelné automatizované výroby, nikoli simulace každého jednotlivého offline zákazníka. Výchozí limit jsou dvě hodiny, vylepšení jej zvyšují na osm.
+Offline income is a conservative estimate of sustainable automated production, not a simulation of every individual offline customer. The default limit is two hours; upgrades raise it to eight.
 
-Třetí projekt `GasStation` sdílí drobné grafické pomocné funkce, ovládání, zvuk, jazykové nastavení a nástroje. Má vlastní simulaci dopravy, zásob a služeb i vlastní uloženou hru. `npm run build` sestaví všechny tři projekty; jednotlivě lze spustit `node scripts/build.mjs burger`, `pizza` nebo `gas`. Benzinka používá dev port 4175 a při ověřování produkční preview 4185. Její simulační testy se spouštějí příkazem `npm test` přímo v `GasStation`.
+The third project, `GasStation`, shares small graphics helper functions, controls, sound, language settings, and tools. It has its own simulation of traffic, stock, and services, and its own saved game. `npm run build` builds all three projects; individually you can run `node scripts/build.mjs burger`, `pizza`, or `gas`. The gas station uses dev port 4175 and preview port 4185 during validation. Its simulation tests are run with `npm test` directly in `GasStation`.
 
-## Ovládání
+## Controls
 
-Postav se do zóny u stanice; naložení a vyložení probíhá automaticky. Kliknutí na štítek stanice nebo šipku aktuálního cíle dovede postavu na místo. Ruční pohyb plánovanou cestu přeruší. Burgery a hranolky mohou být společně na jednom tácu a sdílejí jeho kapacitu; ostatní typy zboží se přenášejí odděleně. Nechtěný náklad nebo odpadky odnes do koše.
+Stand in a station's zone; loading and unloading happen automatically. Clicking a station label or the arrow of the current target walks the character to that spot. Manual movement interrupts the planned path. Burgers and fries can be on one tray together and share its capacity; other goods types are carried separately. Take unwanted cargo or trash to the bin.
 
-Pokladnu zpočátku obsluhuješ stáním v její zóně. Zelená rozšiřovací plocha průběžně utrácí dostupné peníze; alternativou je tlačítko financování v panelu podniku. Částečné splátky se ukládají. Nakonec zaměstnanci převezmou celý řetězec.
+At first you operate the cash register by standing in its zone. The green expansion area continuously spends available money; the alternative is the funding button in the business panel. Partial payments are saved. Eventually, employees take over the whole chain.
 
-## Ověření
+## Validation
 
-Z tohoto adresáře:
+From this directory:
 
 ```powershell
 npm test
@@ -81,8 +81,8 @@ npm run build
 npm run test:e2e
 ```
 
-Browserové testy používají místní Google Chrome. Playwright spustí potřebné dev/preview servery na portech 4173, 4174, 4183 a 4184. Před browserovými testy vytvoř produkční build. Pokud všechny servery už běží, lze nastavit `RESTAURANT_SERVERS_RUNNING=1` a spravovat jejich životní cyklus samostatně.
+The browser tests use a local Google Chrome. Playwright starts the required dev/preview servers on ports 4173, 4174, 4183, and 4184. Create a production build before the browser tests. If all the servers are already running, you can set `RESTAURANT_SERVERS_RUNNING=1` and manage their lifecycle separately.
 
-Testy pokrývají chování zásob, plateb, ukládání, dotyků, automatizace, průchod celou progresí, hodinový chod zaměstnanců a offline browser. Simulovaný průchod není měření skutečného hráče. Fyzický Android/iPhone a publikování do obchodů nebyly ověřeny; tato dodávka je web/PWA, bez reklam, platebních SDK a cloudového účtu.
+The tests cover the behavior of stock, payments, saving, touch input, automation, a run through the entire progression, an hour of employee operation, and the offline browser. A simulated run is not a measurement of a real player. A physical Android/iPhone and publishing to stores were not verified; this delivery is a web/PWA, without ads, payment SDKs, or a cloud account.
 
-Podrobnosti o struktuře a původu grafiky: [ASSETS.md](ASSETS.md). Výsledky ověření: [VALIDATION.md](VALIDATION.md).
+Details on the structure and origin of the graphics: [ASSETS.md](ASSETS.md). Validation results: [VALIDATION.md](VALIDATION.md).
