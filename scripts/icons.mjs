@@ -19,5 +19,16 @@ for (const id of process.argv[2] ? [process.argv[2]] : ["pizza", "burger"]) {
     });
     await page.close();
   }
+  // Store apps: the OS applies its own icon mask, so @capacitor/assets needs
+  // the artwork without our rounded background tile (it re-adds the colour).
+  const page = await browser.newPage({ viewport: { width: 1024, height: 1024 } });
+  await page.setContent(
+    `<style>html,body{margin:0}svg{display:block;width:100vw;height:100vh}</style>${svg.replace(/<rect width="192" height="192"[^>]*\/>/, "")}`,
+  );
+  await page.screenshot({
+    path: join(rootFor(id), "assets/logo.png"),
+    omitBackground: true,
+  });
+  await page.close();
 }
 await browser.close();

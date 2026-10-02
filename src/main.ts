@@ -288,7 +288,11 @@ export function boot(d: GameDefinition) {
       ),
     );
   });
-  if (import.meta.env.PROD && "serviceWorker" in navigator)
+  // Store apps (Capacitor) bundle all assets already; a service worker there
+  // would keep serving the previous version after an app update, and iOS
+  // cannot register one on the capacitor:// scheme (it would show the toast).
+  const nativeApp = "Capacitor" in window;
+  if (import.meta.env.PROD && !nativeApp && "serviceWorker" in navigator)
     void navigator.serviceWorker
       .register("./sw.js")
       .catch(() =>
