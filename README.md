@@ -1,32 +1,32 @@
 # Restaurant Common
 
-Sdílený základ her Burger Rush, Pizza Piazza, Next Stop (GasStation) a Restaurant World: simulace, Three.js grafika, ovládání, UI, lokalizace (20 jazyků), ukládání, build/dev skripty a testy. Hry z něj importují kód relativní cestou a používají jeho `node_modules`.
+Shared foundation of Burger Rush, Pizza Piazza, Next Stop (GasStation) and Restaurant World: simulation, Three.js rendering, input, UI, localization (20 languages), saving, build/dev scripts and tests. The games import its code via relative paths and use its `node_modules`.
 
-## Příkazy
+## Commands
 
 ```bash
 npm ci
-npm test            # unit testy (část testuje i sousední hry)
-npm run typecheck   # TypeScript přes všechny projekty
-npm run build       # produkční build všech her
-npm run test:e2e    # Playwright testy v prohlížeči
+npm test            # unit tests (some also cover the sibling games)
+npm run typecheck   # TypeScript across all projects
+npm run build       # production build of all games
+npm run test:e2e    # Playwright browser tests
 ```
 
-Podrobnosti: [docs/DETAILS.md](docs/DETAILS.md)
+Details (Czech): [docs/DETAILS.md](docs/DETAILS.md)
 
-## Rodina repozitářů
+## Repository family
 
-Hry sdílí kód přes relativní cesty, proto se všechny repozitáře klonují **vedle sebe do jedné složky** (názvy složek musí zůstat stejné):
+The games share code through relative paths, so all repositories must be cloned **side by side into one folder** (keep the folder names unchanged):
 
 ```bash
 for r in RestaurantCommon CommonAdvanced BurgerRush PizzaPiazza GasStation RestaurantWorld; do git clone https://github.com/zcloudcz/$r.git; done
 cd RestaurantCommon && npm ci
 ```
 
-| Repo | Obsah |
+| Repo | Contents |
 |---|---|
-| [RestaurantCommon](https://github.com/zcloudcz/RestaurantCommon) | sdílený engine, UI, build a testy |
-| [CommonAdvanced](https://github.com/zcloudcz/CommonAdvanced) | provozní simulace pro RestaurantWorld |
-| [BurgerRush](https://github.com/zcloudcz/BurgerRush) · [PizzaPiazza](https://github.com/zcloudcz/PizzaPiazza) · [GasStation](https://github.com/zcloudcz/GasStation) · [RestaurantWorld](https://github.com/zcloudcz/RestaurantWorld) | hry |
+| [RestaurantCommon](https://github.com/zcloudcz/RestaurantCommon) | shared engine, UI, build tooling and tests |
+| [CommonAdvanced](https://github.com/zcloudcz/CommonAdvanced) | operations simulation used by Restaurant World |
+| [BurgerRush](https://github.com/zcloudcz/BurgerRush) · [PizzaPiazza](https://github.com/zcloudcz/PizzaPiazza) · [GasStation](https://github.com/zcloudcz/GasStation) · [RestaurantWorld](https://github.com/zcloudcz/RestaurantWorld) | games |
 
-Stack: TypeScript, Three.js, Vite, Vitest, Playwright. Node.js 22.12+, prohlížeč s WebGL 2.
+Stack: TypeScript, Three.js, Vite, Vitest, Playwright. Requires Node.js 22.12+ and a browser with WebGL 2.
