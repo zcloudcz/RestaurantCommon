@@ -1,0 +1,81 @@
+import { describe, it, expect } from "vitest";
+import { burger } from "../../BurgerRush/src/definition";
+import { pizza } from "../../PizzaPiazza/src/definition";
+import { createGame, command, step } from "../src/game/simulation";
+import { capacity, produce } from "../src/game/production";
+import { price } from "../src/game/customers";
+import { encodeSave, decodeSave, offlineRate } from "../src/save";
+
+describe.each([burger, pizza])("$id second chapter", (d) => {
+  it("continues a completed original save without losing money or inventory", () => {
+    const s = createGame(d);
+    s.level = 12;
+    s.money = 4321;
+    s.recipe = 2;
+    s.player.item = "meal";
+    s.player.count = 3;
+    const now = Date.now();
+    const loaded = decodeSave(encodeSave(s, now), d, now);
+    expect(loaded.ok).toBe(true);
+    if (!loaded.ok) return;
+    expect(loaded.state.level).toBe(12);
+    expect(loaded.state.money).toBe(4321);
+    expect(loaded.state.player.count).toBe(3);
+    expect(command(loaded.state, d, { type: "unlock" })).toBe(true);
+    expect(loaded.state.level).toBe(13);
+    expect(loaded.state.money).toBe(821);
+  });
+  it("applies bonuses only at the purchased milestones and validates expanded trays", () => {
+    const s = createGame(d);
+    s.level = 12;
+    expect(capacity(s)).toBe(5);
+    s.level = 13;
+    s.upgrades.capacity = 5;
+    expect(capacity(s)).toBe(25);
+    s.player.item = "meal";
+    s.player.count = 25;
+    expect(decodeSave(encodeSave(s, Date.now()), d, Date.now()).ok).toBe(true);
+    s.level = 12;
+    expect(decodeSave(encodeSave(s, Date.now()), d, Date.now()).ok).toBe(false);
+    s.player.item = null;
+    s.player.count = 0;
+    s.level = 14;
+    expect(command(s, d, { type: "recipe", index: 3 })).toBe(false);
+    s.level = 15;
+    expect(command(s, d, { type: "recipe", index: 3 })).toBe(true);
+    expect(command(s, d, { type: "recipe", index: 4 })).toBe(false);
+    const before = createGame(d);
+    before.level = 15;
+    const after = createGame(d);
+    after.level = 16;
+    produce(before, d, 0.1);
+    produce(after, d, 0.1);
+    expect(after.stations[0].timer).toBeCloseTo(before.stations[0].timer * 1.5);
+    s.level = 16;
+    const base = price(s, d);
+    s.level = 17;
+    expect(price(s, d)).toBeGreaterThan(base);
+    const offline = offlineRate(s, d);
+    s.level = 18;
+    expect(offlineRate(s, d)).toBeGreaterThan(offline * 1.5);
+    expect(decodeSave(encodeSave(s, Date.now()), d, Date.now()).ok).toBe(true);
+    s.level = 19;
+    expect(decodeSave(encodeSave(s, Date.now()), d, Date.now()).ok).toBe(false);
+  });
+  it("earns all six expansions through normal automated sales without added currency", () => {
+    const s = createGame(d);
+    s.level = 12;
+    s.recipe = 2;
+    for (let i = 0; i < 144000 && s.level < d.unlocks.length; i++) {
+      step(s, d, { x: 0, z: 0 }, 0.1);
+      if (s.money >= d.unlocks[s.level].cost) command(s, d, { type: "unlock" });
+      if (s.level >= 15) command(s, d, { type: "recipe", index: 3 });
+    }
+    expect(s.level).toBe(18);
+    expect(s.money).toBeGreaterThanOrEqual(0);
+    expect(s.served).toBeGreaterThan(100);
+    expect(command(s, d, { type: "unlock" })).toBe(false);
+    expect(decodeSave(encodeSave(s, Date.now()), d, Date.now()).ok).toBe(true);
+    console.log(d.id, "new chapter minutes", Math.round(s.time / 6) / 10);
+  }, 30000);
+});
