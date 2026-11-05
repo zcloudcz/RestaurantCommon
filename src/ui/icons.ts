@@ -18,6 +18,8 @@ export function icon(name: string, size = 22) {
     bag: '<path d="M5 7h14l1 14H4Zm3 0V5a4 4 0 0 1 8 0v2"/>',
     check: '<path d="m5 12 4 4L19 6"/>',
     map: '<path d="m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2Zm6-2v16m6-14v16"/>',
+    fullscreen: '<path d="M8 3H3v5m13-5h5v5M3 16v5h5m8 0h5v-5"/>',
+    restore: '<path d="M3 8h5V3m8 0v5h5M8 21v-5H3m18 0h-5v5"/>',
     trophy:
       '<path d="M7 3h10v5a5 5 0 0 1-10 0Zm0 2H3v3a4 4 0 0 0 5 4m9-7h4v3a4 4 0 0 1-5 4m-4 1v6m-5 2h10"/>',
     list: '<path d="m3 6 1 1 2-3m3 2h12M3 12l1 1 2-3m3 2h12M3 18l1 1 2-3m3 2h12"/>',

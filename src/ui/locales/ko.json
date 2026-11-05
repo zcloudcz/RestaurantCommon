@@ -239,5 +239,8 @@
   "Staff wages": "직원 임금",
   "Unpaid wages": "미지급 임금",
   "Leave restaurant": "레스토랑 나가기",
-  "Wages are paid automatically. Unpaid wages are deducted from future income.": "임금은 자동 지급됩니다. 미지급 임금은 향후 수입에서 차감됩니다."
+  "Wages are paid automatically. Unpaid wages are deducted from future income.": "임금은 자동 지급됩니다. 미지급 임금은 향후 수입에서 차감됩니다.",
+  "Enter fullscreen": "전체 화면",
+  "Exit fullscreen": "전체 화면 종료",
+  "Fullscreen is unavailable here. Try opening the game from your home screen.": "여기서는 전체 화면을 사용할 수 없습니다. 홈 화면에서 게임을 열어 보세요."
 }

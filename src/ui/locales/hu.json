@@ -239,5 +239,8 @@
   "Staff wages": "A csapat bére",
   "Unpaid wages": "Kifizetetlen bérek",
   "Leave restaurant": "Kilépés az étteremből",
-  "Wages are paid automatically. Unpaid wages are deducted from future income.": "A bérek kifizetése automatikus. Az elmaradásokat a későbbi bevételből vonjuk le."
+  "Wages are paid automatically. Unpaid wages are deducted from future income.": "A bérek kifizetése automatikus. Az elmaradásokat a későbbi bevételből vonjuk le.",
+  "Enter fullscreen": "Teljes képernyő",
+  "Exit fullscreen": "Kilépés a teljes képernyőből",
+  "Fullscreen is unavailable here. Try opening the game from your home screen.": "A teljes képernyő itt nem érhető el. Próbáld a kezdőképernyőről megnyitni a játékot."
 }

@@ -239,5 +239,8 @@
   "Staff wages": "Mzdy týmu",
   "Unpaid wages": "Dlužné mzdy",
   "Leave restaurant": "Odejít z restaurace",
-  "Wages are paid automatically. Unpaid wages are deducted from future income.": "Mzdy se platí automaticky. Dlužné mzdy se odečtou z budoucích příjmů."
+  "Wages are paid automatically. Unpaid wages are deducted from future income.": "Mzdy se platí automaticky. Dlužné mzdy se odečtou z budoucích příjmů.",
+  "Enter fullscreen": "Celá obrazovka",
+  "Exit fullscreen": "Ukončit celou obrazovku",
+  "Fullscreen is unavailable here. Try opening the game from your home screen.": "Celá obrazovka tady není dostupná. Zkus hru spustit z domovské obrazovky."
 }

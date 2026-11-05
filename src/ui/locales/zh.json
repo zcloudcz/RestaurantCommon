@@ -239,5 +239,8 @@
   "Staff wages": "员工工资",
   "Unpaid wages": "未付工资",
   "Leave restaurant": "离开餐厅",
-  "Wages are paid automatically. Unpaid wages are deducted from future income.": "工资自动支付，未付工资将从未来收入中扣除。"
+  "Wages are paid automatically. Unpaid wages are deducted from future income.": "工资自动支付，未付工资将从未来收入中扣除。",
+  "Enter fullscreen": "全屏",
+  "Exit fullscreen": "退出全屏",
+  "Fullscreen is unavailable here. Try opening the game from your home screen.": "此处无法使用全屏。请尝试从主屏幕打开游戏。"
 }

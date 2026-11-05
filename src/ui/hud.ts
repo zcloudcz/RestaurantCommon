@@ -97,6 +97,42 @@ export function createHud(
     clearTimeout(toastTimer);
     toastTimer = window.setTimeout(() => el.classList.remove("show"), 3200);
   }
+  const fullscreenButton = document.createElement("button");
+  fullscreenButton.className = "icon-button";
+  fullscreenButton.dataset.action = "fullscreen";
+  root.querySelector(".world-tools")!.prepend(fullscreenButton);
+  function updateFullscreen() {
+    const active = Boolean(document.fullscreenElement);
+    const label = tr(active ? "Exit fullscreen" : "Enter fullscreen");
+    fullscreenButton.setAttribute("aria-pressed", String(active));
+    fullscreenButton.setAttribute("aria-label", label);
+    fullscreenButton.title = label;
+    fullscreenButton.innerHTML = icon(active ? "restore" : "fullscreen");
+  }
+  document.addEventListener("fullscreenchange", updateFullscreen);
+  async function toggleFullscreen() {
+    fullscreenButton.disabled = true;
+    try {
+      if (document.fullscreenElement) await document.exitFullscreen();
+      else if (
+        document.fullscreenEnabled &&
+        document.documentElement.requestFullscreen
+      )
+        await document.documentElement.requestFullscreen({
+          navigationUI: "hide",
+        });
+      else throw new Error("Fullscreen unavailable");
+    } catch {
+      toast(
+        tr(
+          "Fullscreen is unavailable here. Try opening the game from your home screen.",
+        ),
+      );
+    } finally {
+      fullscreenButton.disabled = false;
+      updateFullscreen();
+    }
+  }
   function open(name: string) {
     modal = name;
     actions.pause(true);
@@ -214,7 +250,8 @@ export function createHud(
         return;
       }
     const action = el.dataset.action;
-    if (action === "close") close();
+    if (action === "fullscreen") void toggleFullscreen();
+    else if (action === "close") close();
     else if (action === "sound") {
       sound = !sound;
       actions.sound(sound);
@@ -289,6 +326,7 @@ export function createHud(
     );
   }
   function translateStatic() {
+    updateFullscreen();
     document.title = `${d.title} · ${localize(d.subtitle, lang)}`;
     document
       .querySelector('meta[name="description"]')

@@ -239,5 +239,8 @@
   "Staff wages": "スタッフ給与",
   "Unpaid wages": "未払い給与",
   "Leave restaurant": "レストランを出る",
-  "Wages are paid automatically. Unpaid wages are deducted from future income.": "給与は自動で支払われます。未払い分は今後の収益から差し引かれます。"
+  "Wages are paid automatically. Unpaid wages are deducted from future income.": "給与は自動で支払われます。未払い分は今後の収益から差し引かれます。",
+  "Enter fullscreen": "全画面表示",
+  "Exit fullscreen": "全画面表示を終了",
+  "Fullscreen is unavailable here. Try opening the game from your home screen.": "ここでは全画面表示を利用できません。ホーム画面からゲームを開いてみてください。"
 }

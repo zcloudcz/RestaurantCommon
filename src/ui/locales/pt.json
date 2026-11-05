@@ -239,5 +239,8 @@
   "Staff wages": "Salários da equipa",
   "Unpaid wages": "Salários em atraso",
   "Leave restaurant": "Sair do restaurante",
-  "Wages are paid automatically. Unpaid wages are deducted from future income.": "Os salários são pagos automaticamente. Os atrasados são deduzidos dos rendimentos futuros."
+  "Wages are paid automatically. Unpaid wages are deducted from future income.": "Os salários são pagos automaticamente. Os atrasados são deduzidos dos rendimentos futuros.",
+  "Enter fullscreen": "Tela cheia",
+  "Exit fullscreen": "Sair da tela cheia",
+  "Fullscreen is unavailable here. Try opening the game from your home screen.": "A tela cheia não está disponível aqui. Tente abrir o jogo pela tela inicial."
 }

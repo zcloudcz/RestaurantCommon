@@ -239,5 +239,8 @@
   "Staff wages": "Salaires",
   "Unpaid wages": "Salaires impayés",
   "Leave restaurant": "Quitter le restaurant",
-  "Wages are paid automatically. Unpaid wages are deducted from future income.": "Les salaires sont payés automatiquement. Les impayés sont déduits des futurs revenus."
+  "Wages are paid automatically. Unpaid wages are deducted from future income.": "Les salaires sont payés automatiquement. Les impayés sont déduits des futurs revenus.",
+  "Enter fullscreen": "Plein écran",
+  "Exit fullscreen": "Quitter le plein écran",
+  "Fullscreen is unavailable here. Try opening the game from your home screen.": "Le plein écran est indisponible ici. Essaie de lancer le jeu depuis ton écran d’accueil."
 }

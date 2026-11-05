@@ -239,5 +239,8 @@
   "Staff wages": "Salarios del equipo",
   "Unpaid wages": "Salarios pendientes",
   "Leave restaurant": "Salir del restaurante",
-  "Wages are paid automatically. Unpaid wages are deducted from future income.": "Los salarios se pagan automáticamente. Los pendientes se descuentan de los ingresos futuros."
+  "Wages are paid automatically. Unpaid wages are deducted from future income.": "Los salarios se pagan automáticamente. Los pendientes se descuentan de los ingresos futuros.",
+  "Enter fullscreen": "Pantalla completa",
+  "Exit fullscreen": "Salir de pantalla completa",
+  "Fullscreen is unavailable here. Try opening the game from your home screen.": "La pantalla completa no está disponible aquí. Prueba a abrir el juego desde la pantalla de inicio."
 }
