@@ -239,5 +239,8 @@
   "Staff wages": "Stipendi del personale",
   "Unpaid wages": "Stipendi non pagati",
   "Leave restaurant": "Esci dal ristorante",
-  "Wages are paid automatically. Unpaid wages are deducted from future income.": "Gli stipendi vengono pagati automaticamente. Gli arretrati vengono detratti dai ricavi futuri."
+  "Wages are paid automatically. Unpaid wages are deducted from future income.": "Gli stipendi vengono pagati automaticamente. Gli arretrati vengono detratti dai ricavi futuri.",
+  "Enter fullscreen": "Schermo intero",
+  "Exit fullscreen": "Esci dallo schermo intero",
+  "Fullscreen is unavailable here. Try opening the game from your home screen.": "Lo schermo intero non è disponibile qui. Prova ad aprire il gioco dalla schermata iniziale."
 }

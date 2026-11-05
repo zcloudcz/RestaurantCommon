@@ -239,5 +239,8 @@
   "Staff wages": "Personel ücretleri",
   "Unpaid wages": "Ödenmemiş ücretler",
   "Leave restaurant": "Restorandan çık",
-  "Wages are paid automatically. Unpaid wages are deducted from future income.": "Ücretler otomatik ödenir. Ödenmemiş ücretler gelecekteki gelirlerden düşülür."
+  "Wages are paid automatically. Unpaid wages are deducted from future income.": "Ücretler otomatik ödenir. Ödenmemiş ücretler gelecekteki gelirlerden düşülür.",
+  "Enter fullscreen": "Tam ekran",
+  "Exit fullscreen": "Tam ekrandan çık",
+  "Fullscreen is unavailable here. Try opening the game from your home screen.": "Tam ekran burada kullanılamıyor. Oyunu ana ekranından açmayı dene."
 }

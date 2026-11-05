@@ -239,5 +239,8 @@
   "Staff wages": "Salariile echipei",
   "Unpaid wages": "Salarii restante",
   "Leave restaurant": "Ieși din restaurant",
-  "Wages are paid automatically. Unpaid wages are deducted from future income.": "Salariile se plătesc automat. Restanțele se scad din veniturile viitoare."
+  "Wages are paid automatically. Unpaid wages are deducted from future income.": "Salariile se plătesc automat. Restanțele se scad din veniturile viitoare.",
+  "Enter fullscreen": "Ecran complet",
+  "Exit fullscreen": "Ieși din ecranul complet",
+  "Fullscreen is unavailable here. Try opening the game from your home screen.": "Ecranul complet nu este disponibil aici. Încearcă să deschizi jocul de pe ecranul de pornire."
 }

@@ -445,6 +445,9 @@ export function createScene(canvas: HTMLCanvasElement, d: GameDefinition) {
     { id: "trash", position: TRASH },
     { id: "unlock", position: PLOT },
   ].map((x) => ({ ...x, screen: { x: 0, y: 0 }, visible: true }));
+  const mobileViewport = matchMedia(
+    "(max-width: 760px), (max-width: 1024px) and (max-height: 500px)",
+  );
   function resize() {
     width = canvas.clientWidth;
     height = canvas.clientHeight;
@@ -519,6 +522,7 @@ export function createScene(canvas: HTMLCanvasElement, d: GameDefinition) {
     }
     if (width !== canvas.clientWidth || height !== canvas.clientHeight)
       resize();
+    const mobile = mobileViewport.matches;
     const aspect = width / height,
       portrait = aspect < 0.85;
     const expanded = hasExpansion(s, 13);
@@ -537,8 +541,8 @@ export function createScene(canvas: HTMLCanvasElement, d: GameDefinition) {
             (mapWidth * 0.85 + mapDepth * 0.55 + 7) / aspect,
           )
         : Math.max(26, 25 / aspect)
-      : portrait
-        ? 25
+      : mobile
+        ? Math.min(19, height / 28)
         : 27;
     camera.left = (-view * aspect) / 2;
     camera.right = (view * aspect) / 2;
@@ -546,13 +550,9 @@ export function createScene(canvas: HTMLCanvasElement, d: GameDefinition) {
     camera.bottom = -view / 2;
     camera.updateProjectionMatrix();
     const target = new T.Vector3(
-      !overview && (portrait || expanded)
-        ? s.player.x * (expanded ? 1 : 0.65)
-        : centerX,
+      !overview && (mobile || expanded) ? s.player.x : centerX,
       0,
-      !overview && (portrait || expanded)
-        ? s.player.z * (expanded ? 1 : 0.55)
-        : centerZ,
+      !overview && (mobile || expanded) ? s.player.z : centerZ,
     );
     focus.lerp(target, reduced ? 1 : Math.min(1, dt * 4));
     camera.position.copy(focus).add(new T.Vector3(14, 23, 22));
@@ -707,8 +707,11 @@ export function createScene(canvas: HTMLCanvasElement, d: GameDefinition) {
     for (const label of labels) {
       const p = new T.Vector3(
         label.position.x,
-        label.id === "unlock" ? 0.5 : 1.7,
-        label.position.z - 0.6,
+        mobile && !overview ? 3.6 : label.id === "unlock" ? 0.5 : 1.7,
+        label.position.z -
+          (mobile && !overview && d.stations.some((st) => st.id === label.id)
+            ? 1.5
+            : 0.6),
       ).project(camera);
       label.screen.x = ((p.x + 1) * width) / 2;
       label.screen.y = ((1 - p.y) * height) / 2;

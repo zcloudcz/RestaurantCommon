@@ -239,5 +239,8 @@
   "Staff wages": "Personallöhne",
   "Unpaid wages": "Offene Löhne",
   "Leave restaurant": "Restaurant verlassen",
-  "Wages are paid automatically. Unpaid wages are deducted from future income.": "Löhne werden automatisch bezahlt. Offene Löhne werden von künftigen Einnahmen abgezogen."
+  "Wages are paid automatically. Unpaid wages are deducted from future income.": "Löhne werden automatisch bezahlt. Offene Löhne werden von künftigen Einnahmen abgezogen.",
+  "Enter fullscreen": "Vollbild öffnen",
+  "Exit fullscreen": "Vollbild verlassen",
+  "Fullscreen is unavailable here. Try opening the game from your home screen.": "Vollbild ist hier nicht verfügbar. Starte das Spiel über deinen Startbildschirm."
 }

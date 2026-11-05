@@ -239,5 +239,8 @@
   "Staff wages": "Зарплати команди",
   "Unpaid wages": "Заборгованість із зарплат",
   "Leave restaurant": "Вийти з ресторану",
-  "Wages are paid automatically. Unpaid wages are deducted from future income.": "Зарплати виплачуються автоматично. Борги вираховуються з майбутніх доходів."
+  "Wages are paid automatically. Unpaid wages are deducted from future income.": "Зарплати виплачуються автоматично. Борги вираховуються з майбутніх доходів.",
+  "Enter fullscreen": "На весь екран",
+  "Exit fullscreen": "Вийти з повноекранного режиму",
+  "Fullscreen is unavailable here. Try opening the game from your home screen.": "Повноекранний режим тут недоступний. Спробуй відкрити гру з головного екрана."
 }

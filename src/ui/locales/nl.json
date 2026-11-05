@@ -239,5 +239,8 @@
   "Staff wages": "Personeelslonen",
   "Unpaid wages": "Onbetaalde lonen",
   "Leave restaurant": "Restaurant verlaten",
-  "Wages are paid automatically. Unpaid wages are deducted from future income.": "Lonen worden automatisch betaald. Achterstallige lonen worden van toekomstige inkomsten afgetrokken."
+  "Wages are paid automatically. Unpaid wages are deducted from future income.": "Lonen worden automatisch betaald. Achterstallige lonen worden van toekomstige inkomsten afgetrokken.",
+  "Enter fullscreen": "Volledig scherm",
+  "Exit fullscreen": "Volledig scherm verlaten",
+  "Fullscreen is unavailable here. Try opening the game from your home screen.": "Volledig scherm is hier niet beschikbaar. Probeer het spel vanaf je startscherm te openen."
 }

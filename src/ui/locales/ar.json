@@ -239,5 +239,8 @@
   "Staff wages": "أجور الفريق",
   "Unpaid wages": "الأجور المستحقة",
   "Leave restaurant": "مغادرة المطعم",
-  "Wages are paid automatically. Unpaid wages are deducted from future income.": "تُدفع الأجور تلقائيًا. تُخصم الأجور المستحقة من الدخل المستقبلي."
+  "Wages are paid automatically. Unpaid wages are deducted from future income.": "تُدفع الأجور تلقائيًا. تُخصم الأجور المستحقة من الدخل المستقبلي.",
+  "Enter fullscreen": "ملء الشاشة",
+  "Exit fullscreen": "الخروج من ملء الشاشة",
+  "Fullscreen is unavailable here. Try opening the game from your home screen.": "ملء الشاشة غير متاح هنا. جرّب فتح اللعبة من الشاشة الرئيسية."
 }
